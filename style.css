@@ -1,0 +1,258 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+height:100%;
+width:100%;
+}
+
+.sfondo{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  background:#fff url(img/sfondo.jpg) no-repeat center center;
+  background-size:cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contatti{
+  height:auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.immagini{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+img.social{
+  border: none;
+  outline: none;
+  width:15px;
+  height:15px;
+  background-color: white;
+  border-radius:30%;
+  margin-left:10px;
+  margin-right:10px;
+  opacity:0.5;
+}
+
+#ricerca{
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width:40%;
+  height:60px;
+  border-radius: 10px;
+  outline: none;
+  background-color:#acacac;
+  opacity:0.9;
+  }
+
+#cerca{
+  width:100%;
+  outline: none;
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+  input#city {
+    width:80%;
+    height:50px;
+    text-align: center;
+    border: 0px;
+    outline: none;
+    background-color:#acacac;
+    opacity:0.9;
+    font : bold 10px/15px lucida, Sans-Serif;
+    color: white;
+  }
+
+  button{
+    width:25px;
+    height:25px;
+    cursor:pointer;
+    margin:2px;
+    border-radius: 5px;
+    border: 0px;
+    outline: none;
+    background-color:#acacac;
+    opacity:0.9;
+  }
+
+.lente{
+    cursor:pointer;
+    width:20px;
+    height:20px;
+    border: none;
+    outline: none;
+  }
+
+#contenuto{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:400px;
+}
+
+.dati{
+  display: flex;
+  position: relative;
+  justify-content:center;
+  flex-direction: column;
+  width:60%;
+  height:80%;
+  background-color:#acacac;
+  border-radius: 10px;
+  opacity:0.9;
+  outline: none;
+}
+
+.made{
+  text-align: justify;
+  font: bold 10px/15px lucida, Sans-Serif;
+  color: white;
+}
+
+p{
+text-align: center;
+font: bold 20px/25px lucida, Sans-Serif;
+color: white;
+opacity:0.9;
+}
+
+.lista {
+  font : bold 15px/20px lucida, Sans-Serif;
+  color: white;
+  text-align: center;
+  list-style-type: none;
+  line-height: 50px;
+}
+
+.datiprinc{
+  text-align: center;
+  display:flex;
+  justify-content:space-around;
+  flex-direction:row;
+  height:30%;
+}
+
+.datisec{
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  height:70%;
+}
+
+.meteo{
+width: 50px;
+height: 50px;
+}
+
+.para{
+text-align: center;
+font:bold 25px/30px lucida, Sans-Serif;
+line-height:50px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+
+.apply-shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+
+@media only screen and (min-width:700px){
+
+.dati{
+  display: flex;
+  position: relative;
+  justify-content:center;
+  flex-direction: column;
+  width:45%;
+  height:80%;
+  background-color:#acacac;
+  border-radius: 10px;
+  opacity:0.9;
+  outline: none;
+}
+
+.para{
+text-align: center;
+font:bold 40px/50px lucida, Sans-Serif;
+line-height:100px;
+}
+
+.meteo{
+width: 100px;
+height: 100px;
+}
+
+.lista {
+  font : bold 25px/30px lucida, Sans-Serif;
+  color: white;
+  text-align: center;
+  list-style-type: none;
+  line-height: 50px;
+}
+
+input#city {
+  width:80%;
+  height:50px;
+  text-align: center;
+  border: 0px;
+  outline: none;
+  background-color:#acacac;
+  opacity:0.9;
+  font : bold 20px/25px lucida, Sans-Serif;
+  color: white;
+}
+button{
+  width:50px;
+  height:50px;
+  cursor:pointer;
+  margin:2px;
+  border-radius: 5px;
+  border: 0px;
+  outline: none;
+  background-color:#acacac;
+  opacity:0.9;
+}
+
+
+
+}
