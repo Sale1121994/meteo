@@ -108,7 +108,7 @@ function visualizzaMeteo(datiMeteo,apiCall){
   const list = document.createElement('ul');
   /*calcolo la temperatura da Kelvin a celsius*/
   const liTempAtt = document.createElement ('li');
-  tempAtt=Math.floor(tempMax-273,15);
+  tempAtt=Math.floor(tempAtt-273,15);
   liTempAtt.textContent= 'Temperatura attuale: '+tempAtt+'\u00B0C';
 
   const liTempMax = document.createElement ('li');
