@@ -5,23 +5,25 @@
     <meta name='viewport'
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
       <link href='style.css' rel='stylesheet'/>
-      <title>Meteo.SS</title>
+      <title>Meteo</title>
+      <link href='img/sun.png' rel='icon'/>
       <script src='weather.js'></script>
     </head>
     <body>
-      <div class='sfondo'>
-      <div id='ricerca'>
-          <div id='cerca'>
-            <input id='city' type='text' placeholder='Inserisci una citt&aacute'/>
-          </div>
-            <button type='button' value="submit"><img class='lente' src='img/lente.png'></img></button>
-      </div>
+      <div id='sfondo'>
+        <div id='ricerca'>
+            <div id='cerca'>
+              <input id='city' type='text' placeholder='Inserisci una citt&aacute'/>
+            </div>
+            <button type='button' value="submit"><img id='lente' src='img/lente.png'></img></button>
+        </div>
         <div id='contenuto'>
         </div>
 
-      <div class='contatti'>
-        <div class='made'>  Made By Simone Salesio, contattami sui vari social:</div>
-        <div class='immagini'>
+
+      <div id='contatti'>
+        <div id='made'>  Made By Simone Salesio, contattami sui vari social:</div>
+        <div id='immagini'>
         <div>
           <a href="https://www.facebook.com/simone.salesio" target='_blank'>
             <img class='social'src='img/facebook.png'/>

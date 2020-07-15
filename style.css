@@ -8,7 +8,7 @@ height:100%;
 width:100%;
 }
 
-.sfondo{
+#sfondo{
   position:fixed;
   top:0;
   left:0;
@@ -23,14 +23,14 @@ width:100%;
   align-items: center;
 }
 
-.contatti{
+#contatti{
   height:auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.immagini{
+#immagini{
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -71,7 +71,7 @@ img.social{
 }
 
 
-  input#city {
+input#city {
     width:80%;
     height:50px;
     text-align: center;
@@ -83,7 +83,7 @@ img.social{
     color: white;
   }
 
-  button{
+button{
     width:25px;
     height:25px;
     cursor:pointer;
@@ -95,7 +95,7 @@ img.social{
     opacity:0.9;
   }
 
-.lente{
+#lente{
     cursor:pointer;
     width:20px;
     height:20px;
@@ -125,7 +125,7 @@ img.social{
   outline: none;
 }
 
-.made{
+#made{
   text-align: justify;
   font: bold 10px/15px lucida, Sans-Serif;
   color: white;
@@ -171,6 +171,7 @@ text-align: center;
 font:bold 25px/30px lucida, Sans-Serif;
 line-height:50px;
 }
+
 
 @keyframes shake {
   10%, 90% {
@@ -252,7 +253,5 @@ button{
   background-color:#acacac;
   opacity:0.9;
 }
-
-
 
 }

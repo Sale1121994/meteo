@@ -17,18 +17,18 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function(e) {
   const btn = document.querySelector('button');
     btn.onclick =function (e) {
-    const city = document.getElementById('city').value;
-    var url =encodeURI(city);
-    e.preventDefault();
-    if (city===""){
-      alert ('inserisci una citt\u00E0');
-    }else {
-       var apiCall='https://api.openweathermap.org/data/2.5/weather?q=' + url +
-       '&appid=77effa618a04584f1093cda186f54131';
-       console.log(apiCall);
-       dMeteo(apiCall);
-       }
-     }
+      const city = document.getElementById('city').value;
+      var url =encodeURI(city);
+      e.preventDefault();
+      if (city===""){
+        alert ('inserisci una citt\u00E0');
+      }else {
+        var apiCall='https://api.openweathermap.org/data/2.5/weather?q=' + url +
+        '&appid=77effa618a04584f1093cda186f54131';
+        console.log(apiCall);
+        dMeteo(apiCall);
+        }
+      }
  })
 
 /*funzione di richiesta dei dati ad openweather*/
@@ -42,13 +42,15 @@ document.addEventListener('DOMContentLoaded', function(e) {
        visualizzaMeteo(datiMeteo,apiCall);
      }
      request.onloadend = function(){
-       /*gestione dell'errore in caso di città non trovata*/
+       /*gestione dell'errore in caso di città non trovata con movimento
+       della barra input e cambio di colore in background*/
        if(request.status == 404){
           const ricerca = document.getElementById('ricerca');
           const city = document.querySelector('input');
           ricerca.style.backgroundColor = 'red';
           city.style.backgroundColor = 'red';
           city.classList.add("apply-shake");
+        /*reset dello stile dell'input una volta effettuata l'animazione*/
           city.addEventListener("animationend", (e) => {
             city.classList.remove("apply-shake");
             ricerca.style.backgroundColor = '#acacac';
@@ -84,7 +86,7 @@ function visualizzaMeteo(datiMeteo,apiCall){
     cont.removeChild(cont.firstChild);
   }
 
-
+  /*assegno gli attributi css ai vari div creati*/
   cont.appendChild(dati);
   dati.setAttribute('class','dati');
   datiPrin.setAttribute('class','datiprinc');
@@ -94,10 +96,11 @@ function visualizzaMeteo(datiMeteo,apiCall){
   const imgMeteo = document.createElement('img');
   imgMeteo.src = 'https://openweathermap.org/img/wn/'+icon+'.png';
   imgMeteo.setAttribute('class','meteo');
+  /*copio il nome della città e lo visualizzo*/
   const para=document.createElement('p')
-
   para.setAttribute('class','para');
   para.textContent = nome;
+  /*collego tutti i vari div tramite il method appendchild*/
   dati.appendChild(datiPrin);
   datiPrin.appendChild(para);
   datiPrin.appendChild(imgMeteo);
