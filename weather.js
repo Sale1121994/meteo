@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function(e) {
        visualizzaMeteo(datiMeteo,apiCall);
      }
      request.onloadend = function(){
+       /*gestione dell'errore in caso di città non trovata*/
        if(request.status == 404){
-
           const ricerca = document.getElementById('ricerca');
           const city = document.querySelector('input');
           ricerca.style.backgroundColor = 'red';
@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
   /*funzione di visualizzazione del meteo delle località trovate o richieste*/
 function visualizzaMeteo(datiMeteo,apiCall){
-
   if (apiCall.includes('lat')===true){
     var nome = datiMeteo.name;
   }else{
     var nome = city.value;
   }
+  /*inizializzazione variabili con i dati ricevuti dall'API*/
   var nazione = datiMeteo.sys.country;
   var nome = nome.charAt(0).toUpperCase() + nome.slice(1)+', '+nazione;
   var descrizione = datiMeteo.weather[0].description;
@@ -73,26 +73,24 @@ function visualizzaMeteo(datiMeteo,apiCall){
   var tempMax= datiMeteo.main.temp_max;
   var tempMin= datiMeteo.main.temp_min;
   var icon = datiMeteo.weather[0].icon;
-  /*creo due div all'interno del div dati in modo da dividere i contenuti e gestir emeglio gli stili*/
+  /*creo la visualizzazione dei dati*/
   const cont= document.getElementById('contenuto');
   const dati = document.createElement('div');
   const datiPrin = document.createElement('div');
   const datiSec = document.createElement('div');
   const p = document.getElementsByTagName('p');
+
   while (cont.firstChild) {
     cont.removeChild(cont.firstChild);
   }
 
-/*css per i div*/
+
   cont.appendChild(dati);
   dati.setAttribute('class','dati');
-  dati.style.justifyContent='flex-start';
-  /*css div superiore img + scritta nome*/
   datiPrin.setAttribute('class','datiprinc');
-  /*css per il secondo div dei dati*/
   datiSec.setAttribute('class','datisec');
 
-  /*scegliere immagine*/
+  /*in base alle informazioni ricevuto visualizzo l'immagine corretta del tempo*/
   const imgMeteo = document.createElement('img');
   imgMeteo.src = 'https://openweathermap.org/img/wn/'+icon+'.png';
   imgMeteo.setAttribute('class','meteo');
@@ -105,7 +103,7 @@ function visualizzaMeteo(datiMeteo,apiCall){
   datiPrin.appendChild(imgMeteo);
 
   const list = document.createElement('ul');
-
+  /*calcolo la temperatura da Kelvin a celsius*/
   const liTempAtt = document.createElement ('li');
   tempAtt=Math.floor(tempMax-273,15);
   liTempAtt.textContent= 'Temperatura attuale: '+tempAtt+'\u00B0C';
@@ -117,7 +115,7 @@ function visualizzaMeteo(datiMeteo,apiCall){
   const liTempMin = document.createElement ('li');
   tempMin=Math.floor(tempMin-273,15);
   liTempMin.textContent= 'Temperatura minima: '+tempMin+'\u00B0C';
-
+  /*traduco la situazione meterologica attuale*/
   const liDescr = document.createElement ('li');
   var traduzione ={
     'clear sky' : 'Cielo limpido',
@@ -133,6 +131,7 @@ function visualizzaMeteo(datiMeteo,apiCall){
     'mist':'Nebbia',
   }
   liDescr.textContent= traduzione[descrizione];
+  /*visualizzo il tutto*/
   liTempAtt.setAttribute('class','lista');
   liTempMax.setAttribute('class','lista');
   liTempMin.setAttribute('class','lista');
@@ -144,6 +143,7 @@ function visualizzaMeteo(datiMeteo,apiCall){
   list.appendChild(liTempAtt);
   list.appendChild(liTempMax);
   list.appendChild(liTempMin);
+  /* resetto i parametri per un'altra ricerca*/
   document.getElementById('city').value="";
   document.getElementById('city').placeholder="Inserisci un'altra citt\u00E0";
 }
